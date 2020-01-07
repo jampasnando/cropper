@@ -7,8 +7,50 @@
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-button (click)="captureImage()">Capturar</ion-button>
+  <image-cropper
+  [imageBase64]="myImage"
+  [maintainAspectRatio]="false"
+  format="png"
+  (imageCropped)="imageCropped($event)"
+  outputType="Base64"
+  ></image-cropper>
+<div>
+ <ion-button (click)="rotateLeft()">rotIzq</ion-button>
+ <ion-button (click)="rotateRight()">rotDer</ion-button>
+ <ion-button (click)="flipHorizontal()">flipH</ion-button>
+ <ion-button (click)="flipVertical()">flipV</ion-button>
+ <ion-button (click)="move(0,-10)">mov</ion-button>
+ <ion-button (click)="save()">Guardar</ion-button>
+ <ion-button (click)="clear()">Limpia</ion-button>
+ <ion-button (click)="accion()">accion</ion-button>
+ <ion-button (click)="ponerect()">rect</ion-button>
+</div>
+<div>
+ <img [src]="croppedImage">
+</div>
+  <!-- <ion-card *ngIf="croppedImage">
+    <ion-card-header>
+      <ion-card-subtitle>
+        Subtitulo
+      </ion-card-subtitle>
+      <ion-card-header>
+        Titulo
+      </ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      <img [src]="croppedImage">
+    </ion-card-content>
+  </ion-card> -->
+  <canvas #imageCanvas (mousemove)="moved($event)" (touchmove)="moved($event)"></canvas>
+  <!-- <ion-img [src]="myImage"></ion-img> -->
+  <ion-button (click)="rotateLeft()">rotIzq</ion-button>
+ <ion-button (click)="rotateRight()">rotDer</ion-button>
+ <ion-button (click)="flipHorizontal()">flipH</ion-button>
+ <ion-button (click)="flipVertical()">flipV</ion-button>
+ <ion-button (click)="move(0,-10)">mov</ion-button>
+ <ion-button (click)="save()">Guardar</ion-button>
+ <ion-button (click)="clear()">Limpia</ion-button>
+ <ion-button (click)="accion()">accion</ion-button>
+ <ion-button (click)="ponerect()">rect</ion-button>
 </ion-content>

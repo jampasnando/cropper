@@ -1,5 +1,7 @@
 {
   "name": "cropper",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
