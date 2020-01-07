@@ -15,6 +15,9 @@ xx1=0;
 yy1=0;
 xx2=0;
 yy2=0;
+anchoOriginal=0;
+altoOriginal=0;
+areaOriginal=0;
 @ViewChild(ImageCropperComponent,{static:false}) angularCropper:ImageCropperComponent;
 @ViewChild('imageCanvas',{static:false}) canvas:ElementRef;
 ctx:CanvasRenderingContext2D;
@@ -110,7 +113,10 @@ canvasElement:any;
     this.ctx=this.canvasElement.getContext('2d');
     
     background.onload=()=>{
-      console.log("dimensiones reales: ",background.naturalWidth,background.naturalHeight);
+      this.anchoOriginal=background.naturalWidth;
+      this.altoOriginal=background.naturalHeight;
+      this.areaOriginal=this.anchoOriginal*this.altoOriginal;
+      console.log("dimensiones reales: ",this.anchoOriginal,this.altoOriginal,this.areaOriginal);
       this.ctx.drawImage(background,0,0,this.xx2,this.yy2);
       
     };
