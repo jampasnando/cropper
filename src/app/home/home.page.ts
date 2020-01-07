@@ -115,7 +115,10 @@ canvasElement:any;
 
   }
   ponerect(){
-    this.ctx.rect(this.xx1,this.yy1,this.xx2,this.yy2);
+    console.log("rectangulo: ",this.xx1,this.yy1,this.xx2,this.yy2);
+    let ancho=this.xx2-this.xx1;
+    let alto=this.yy2-this.yy1;
+    this.ctx.rect(this.xx1,this.yy1,ancho,alto);
     this.ctx.lineWidth=1;
     this.ctx.strokeStyle='#ffcccc';
     this.ctx.stroke();
