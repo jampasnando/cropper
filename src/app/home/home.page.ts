@@ -77,8 +77,8 @@ canvasElement:any;
     this.yy1=this.angularCropper.cropper.y1;
     this.xx2=this.angularCropper.cropper.x2;
     this.yy2=this.angularCropper.cropper.y2;
-    console.log("(x1,y1): ",this.angularCropper.cropper.x1,",",this.angularCropper.cropper.y1);
-    console.log("(x2,y2): ",this.angularCropper.cropper.x2,",",this.angularCropper.cropper.y2);
+    console.log("(x1,y1): ",this.xx1,",",this.yy1);
+    console.log("(x2,y2): ",this.xx2,",",this.yy2);
   }
   rotateLeft(){
     this.angularCropper.rotateLeft();
@@ -106,9 +106,11 @@ canvasElement:any;
     this.canvasElement.height=this.yy2;
     let background=new Image();
     background.src='assets/foto.jpg';
+    
     this.ctx=this.canvasElement.getContext('2d');
     
     background.onload=()=>{
+      console.log("dimensiones reales: ",background.naturalWidth,background.naturalHeight);
       this.ctx.drawImage(background,0,0,this.xx2,this.yy2);
       
     };
